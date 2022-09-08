@@ -36,3 +36,20 @@ INSERT INTO books VALUES (0008, 'Пролетая над гнездом куку
 INSERT INTO books VALUES (0009, 'Мертвые души', 'Гоголь');
 INSERT INTO books VALUES (00010, 'Раковый корпус', 'Солженицин');
 SELECT * FROM books 
+
+https://dev-gang.ru/article/rabota-s-postgresql-v-python-xn8721sq0g/
+
+Сперва установить библиотеку  pip3 install psycopg2
+import psycopg2
+
+con = psycopg2.connect(
+  database="бд", 
+  user="мой ник", 
+  password="ага", 
+  host="127.0.0.1", 
+  port="5432"
+)
+
+print("Database opened successfully")
+
+ https://ru.stackoverflow.com/questions/1285541/Как-сделать-запрос-к-Базе-Данных-из-Телеграм-бота-по-кнопке
