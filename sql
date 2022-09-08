@@ -55,3 +55,42 @@ print("Database opened successfully")
  https://ru.stackoverflow.com/questions/1285541/Как-сделать-запрос-к-Базе-Данных-из-Телеграм-бота-по-кнопке
 
 https://thecode.media/python-bot/  Про обработчик кнопок   https://ejudge.179.ru/tasks/python/theory/24-telegram.html тоже есть информация про клавиатуру
+
+
+
+
+
+
+хз
+
+import telebot
+from telebot import types
+token='5684309043:AAFwX79gYjvDDxTay466K-Qg_Z9tomVRLy0'
+bot=telebot.TeleBot(token)
+@bot.message_handler(commands=["start"])
+def start(message):
+ markup=types.ReplyKeyboardMarkup(resize_keyboard=True)
+ item1=types.KeyboardButton("Начать поиск на сайте ")
+ @bot.message_handler(content_types='text')
+ def search(message):
+  if message_text =='text':
+      bot.send_message(message.chat.id, "тут будет поиск", replay_markup=markup)
+ item2=types.KeyboardButton("Посмотреть аннотацию")
+@bot.message_handler(content_types='text')
+def description(message):
+  if message_text=='text':
+      bot.send_message(message.chat.id, "Тут будет аннотация", replay_markup=markup)
+      item3=types.KeyboardButton("Популярное")
+@bot.message_handler(content_types='text')
+def charts(message):
+  if message_text=='text':
+     bot.send_message(message.chat.id, "www.chitai-gorod.ru/article/glavnyye_bestsellery_goda/", replay_markup=markup)
+item4=types.KeyboardButton("Помощь")
+@bot.message_handler(content_types='text')
+def help(message):
+  if message_text=='text':
+      bot.send_message(message.chat.id, "Что-то пошло не так? Попробуйте связаться со мной!\nvk.com/gareflecioner", replay_markup=markup)
+      markup.row(item1,item2)
+      markup.row(item3,item4)
+      bot.send_message(message.chat.id,"Сделай выбор!",reply_markup=markup)
+      bot.polling(none_stop=True, interval=0)
