@@ -53,3 +53,5 @@ con = psycopg2.connect(
 print("Database opened successfully")
 
  https://ru.stackoverflow.com/questions/1285541/Как-сделать-запрос-к-Базе-Данных-из-Телеграм-бота-по-кнопке
+
+https://thecode.media/python-bot/  Про обработчик кнопок   https://ejudge.179.ru/tasks/python/theory/24-telegram.html тоже есть информация про клавиатуру
