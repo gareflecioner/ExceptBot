@@ -1,3 +1,7 @@
+https://mastergroosha.github.io/aiogram-2-guide/buttons/
+
+
+
 Не работает 
 CREATE DATABASE bd;
 CREATE TABLE books("Id" BIGSERIAL PRIMARY KEY,
