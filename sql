@@ -1,5 +1,5 @@
-https://mastergroosha.github.io/aiogram-2-guide/buttons/
-
+https://mastergroosha.github.io/aiogram-2-guide/buttons/   про кнопки 
+https://habr.com/ru/post/321510/                        про бд и коннект
 
 
 Не работает 
