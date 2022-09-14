@@ -1,6 +1,6 @@
 https://mastergroosha.github.io/aiogram-2-guide/buttons/   про кнопки 
 https://habr.com/ru/post/321510/                        про бд и коннект
-
+https://off-bot.ru/threads/981/ sqlite and aiogram
 
 Не работает 
 CREATE DATABASE bd;
