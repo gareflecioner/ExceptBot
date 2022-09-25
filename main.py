@@ -43,10 +43,8 @@ async def send_start(message:types. Message):
     @dp.message_handler(lambda message: message.text == "Launch Bot")
     async def without1(message: types.Message):
 
-        await message.reply("Приветствую вас!\nПредставляю вашему вниманию тестового бота!"
-                         "\nЗаранее прошу прошения за различные недоработки и недостатки!"
-                         "\nЯ только учусь!! Представляю небольшой функционал."
-                         "\n\n Если хочешь попытать судьбу и сыграть в кости\n/bones"
+        await message.reply(
+                         "\n Если хочешь попытать судьбу и сыграть в кости\n/bones"
                          "\nЕсли возникли вопросы \n/help"
                          "\nПолезные ссылки\n/url"
                          "\nКвазирегистрация\n/registration"
@@ -120,18 +118,26 @@ async def state1(message: types.Message, state: FSMContext):
     await state.update_data(name=message.text)
     name=message.text
     try:
-        pass
-    except :
-
-        await message.answer(text="Введите корректное имя")
-
-    await message.answer(text="Укажи свою Фамилию")
-    await registration.surname.set()
+        if not name.isnumeric():
+            if len(name)>=5:
+                await state.update_data(name)
+                await message.answer(text="Укажи свою Фамилию!")
+                await registration.surname.set()
+            else:
+                await message.answer("Введите корректное имя")
+                await registration.name.set()
+        else:
+            await message.answer('Введите имя без цифр!')
+            await registration.name.set()
+    except:
+        await message.answer(text="Укажи свою Фамилию")
+        await registration.surname.set()
 
 
 @dp.message_handler(state=registration.surname)
 async def state2(message: types.Message, state: FSMContext):
     await state.update_data(surname=message.text)
+
     await message.answer(text="Сколько тебе лет?")
     await registration.age.set()
 
@@ -178,6 +184,7 @@ async def state5(message:types.Message, state: FSMContext):
                          f"Ваш номер телефона: {data['number']}\n")
 
     await state.finish()
+
 
 @dp.message_handler(commands=["datetime"])
 async def send_datatime(message:types.Message):
